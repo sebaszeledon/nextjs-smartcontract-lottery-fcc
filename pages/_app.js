@@ -1,14 +1,12 @@
-// import { MoralisProvider } from "react-moralis";
-// import { NotificationProvider } from "web3uikit";
+import { MoralisProvider } from "react-moralis";
+import { NotificationProvider } from "web3uikit";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    // <MoralisProvider initializeOnMount={false}>
-    //   <NotificationProvider>
+    <MoralisProvider initializeOnMount={false}>
         <Component {...pageProps} />
-    //   </NotificationProvider>
-    // </MoralisProvider>
+    </MoralisProvider>
   );
 }
 
