@@ -8,4 +8,6 @@ export default function ManualHeader() {
     return(<div>
         {account ? (<div>Connected to {account.slice(0,6)}...{account.slice(account.length -4)} </div>) : (<button onClick={async () => {await enableWeb3()}}>Connect</button>)}
     </div>);
+
+    
 } //17:05:08
