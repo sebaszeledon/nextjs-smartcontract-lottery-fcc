@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import ManualHeader from "../components/ManualHeader";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
@@ -10,8 +10,7 @@ export default function Home() {
         <meta name="description" content="Lottery Web3 App"></meta>
         <link rel="icon" href="/favicon.ico"></link>
       </Head>
-      <ManualHeader/>
-      Smart Contract Lottery App!
+      <Header/>
     </div>
   );
 }

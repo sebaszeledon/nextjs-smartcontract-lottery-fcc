@@ -41,6 +41,7 @@ export default function ManualHeader() {
                             window.localStorage.setItem("connected", "injected");
                         }
                     }}
+                    disabled={isWeb3EnableLoading}
                 >
                     Connect
                 </button>
