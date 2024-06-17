@@ -40,7 +40,10 @@ export default function LotteryEntrance() {
         <div> 
             Hi from lottery entrance!
             { raffleAddress ? (
-                <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div> 
+                <div>
+                    <button onClick={async function(){await enterRaffle()}}>Enter Raffle!</button>
+                    Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH
+                </div> 
             ) : (
                 <div>No Raffle Address Detected</div>
             )}
