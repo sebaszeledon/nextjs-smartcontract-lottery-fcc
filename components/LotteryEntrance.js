@@ -36,9 +36,14 @@ export default function LotteryEntrance() {
         }
     }, [isWeb3Enabled]);
 
-    return (<div> 
-        Hi from lottery entrance!<div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div>
-    </div>
+    return (
+        <div> 
+            Hi from lottery entrance!
+            { raffleAddress ? (
+                <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div> 
+            ) : (
+                <div>No Raffle Address Detected</div>
+            )}
+        </div>
     )
-        
 }
