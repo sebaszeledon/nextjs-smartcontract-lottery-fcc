@@ -10,7 +10,7 @@ export default function LotteryEntrance() {
     const chainId = parseInt(chainIdHex);
     const raffleAddress = chainId in contractAddresses ? contractAddresses[chainId][0] : null;
     const [entranceFee, setEntranceFee] = useState("0");
-    const [numPlayer, setNumPlayers] = useState("0");
+    const [numPlayers, setNumPlayers] = useState("0");
     const [recentWinner, setRecentWinner] = useState("0");
 
     const dispatch = useNotification();
@@ -92,7 +92,9 @@ export default function LotteryEntrance() {
                     </button>
                     <br></br><br></br>
                     <hr></hr><br></br>
-                    Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH
+                    Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH <br></br>
+                    Number Of Players: {numPlayers}<br></br>
+                    Recent Winner: {recentWinner}
                 </div> 
             ) : (
                 <div>No Raffle Address Detected</div>
