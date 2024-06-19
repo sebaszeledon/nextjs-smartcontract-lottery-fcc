@@ -78,7 +78,7 @@ export default function LotteryEntrance() {
 
     return (
         <div className="p-5"> 
-            <h1 className="py-4 px-4 font-bold text-3xl">Lottery</h1>
+            <h1 className="py-4 font-bold text-3xl">Lottery</h1>
             { raffleAddress ? (
                 <div>
                     <button 
@@ -98,10 +98,9 @@ export default function LotteryEntrance() {
                         )}
                     </button>
                     <br></br><br></br>
-                    <hr></hr><br></br>
-                    Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH <br></br>
-                    Number Of Players: {numPlayers}<br></br>
-                    Recent Winner: {recentWinner}
+                    <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div>
+                    <div>Number Of Players: {numPlayers}</div>
+                    <div>Recent Winner: {recentWinner}</div>
                 </div> 
             ) : (
                 <div>No Raffle Address Detected</div>
