@@ -15,7 +15,7 @@ export default function LotteryEntrance() {
 
     const dispatch = useNotification();
 
-    const { runContractFunction: enterRaffle } = useWeb3Contract({
+    const { runContractFunction: enterRaffle, isLoading, isFetching } = useWeb3Contract({
         abi: abi,
         contractAddress: raffleAddress,
         functionName: "enterRaffle",
@@ -44,17 +44,18 @@ export default function LotteryEntrance() {
         params: {},
     });
 
+    async function updateUI() {
+        const entranceFeeFromCall = (await getEntranceFee()).toString();
+        const numPlayersFromCall = (await getNumberOfPlayers()).toString();
+        const recentWinnerFromCall = await getRecentWinner();
+        setEntranceFee(entranceFeeFromCall);
+        setNumPlayers(numPlayersFromCall);
+        setRecentWinner(recentWinnerFromCall);
+    }
+
     useEffect(() => {
         if (isWeb3Enabled){
             //Try to read the raffle entrance fee
-            async function updateUI() {
-                const entranceFeeFromCall = (await getEntranceFee()).toString();
-                const numPlayersFromCall = (await getNumberOfPlayers()).toString();
-                const recentWinnerFromCall = await getRecentWinner();
-                setEntranceFee(entranceFeeFromCall);
-                setNumPlayers(numPlayersFromCall);
-                setRecentWinner(recentWinnerFromCall);
-            }
             updateUI();
         }
     }, [isWeb3Enabled]);
@@ -62,6 +63,7 @@ export default function LotteryEntrance() {
     const handleSuccess = async function (tx) {
         await tx.wait(1);
         handleNewNotification(tx);
+        updateUI();
     }
 
     const handleNewNotification = function() {
@@ -87,8 +89,13 @@ export default function LotteryEntrance() {
                                 onError : (error) => console.log(error)
                             });
                         }}
+                        disabled = {isLoading || isFetching}
                     >
-                        Enter Raffle!
+                        {isLoading || isFetching ? (
+                            <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div>
+                        ) : (
+                            "Enter Raffle"
+                        )}
                     </button>
                     <br></br><br></br>
                     <hr></hr><br></br>
@@ -99,6 +106,6 @@ export default function LotteryEntrance() {
             ) : (
                 <div>No Raffle Address Detected</div>
             )}
-        </div>//17:57:50
+        </div>
     )
-}
+}//18:12:52
