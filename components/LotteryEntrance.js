@@ -10,6 +10,8 @@ export default function LotteryEntrance() {
     const chainId = parseInt(chainIdHex);
     const raffleAddress = chainId in contractAddresses ? contractAddresses[chainId][0] : null;
     const [entranceFee, setEntranceFee] = useState("0");
+    const [numPlayer, setNumPlayers] = useState("0");
+    const [recentWinner, setRecentWinner] = useState("0");
 
     const dispatch = useNotification();
 
@@ -28,12 +30,30 @@ export default function LotteryEntrance() {
         params: {},
     });
 
+    const { runContractFunction: getNumberOfPlayers } = useWeb3Contract({
+        abi: abi,
+        contractAddress: raffleAddress,
+        functionName: "getNumberOfPlayers",
+        params: {},
+    });
+
+    const { runContractFunction: getRecentWinner } = useWeb3Contract({
+        abi: abi,
+        contractAddress: raffleAddress,
+        functionName: "getRecentWinner",
+        params: {},
+    });
+
     useEffect(() => {
         if (isWeb3Enabled){
             //Try to read the raffle entrance fee
             async function updateUI() {
                 const entranceFeeFromCall = (await getEntranceFee()).toString();
+                const numPlayersFromCall = (await getNumberOfPlayers()).toString();
+                const recentWinnerFromCall = await getRecentWinner();
                 setEntranceFee(entranceFeeFromCall);
+                setNumPlayers(numPlayersFromCall);
+                setRecentWinner(recentWinnerFromCall);
             }
             updateUI();
         }
