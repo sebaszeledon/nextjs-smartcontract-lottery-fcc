@@ -1,9 +1,10 @@
 
 # NextJS Smartcontract Lottery (Raffle) FCC
 
-This is a section of the Javascript Blockchain/Smart Contract FreeCodeCamp Course.
+This is my first deployed web3 application. 
 
 [Example App here!](https://modern-lamp-great.on-fleek.app/) 
+
 [Example App on IPFS here!](https://ipfs.io/ipfs/QmUW8QVrCCzYaYkEyhW2DtKyuQjp6pLF4CAk693NVUBBfb)
 
 Built with ❤️ using:
