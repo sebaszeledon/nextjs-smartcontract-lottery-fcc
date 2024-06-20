@@ -3,8 +3,8 @@
 
 This is a section of the Javascript Blockchain/Smart Contract FreeCodeCamp Course.
 
-[Example App here!](https://fancy-dream-3458.on.fleek.co/)
-[Example App on IPFS here!](ipfs://Qme4KacFx21y6pYuTC6veAU2usryXB3fNWqLkX3a2hMvDe)
+[Example App here!](https://modern-lamp-great.on-fleek.app/) 
+[Example App on IPFS here!](https://ipfs.io/ipfs/QmUW8QVrCCzYaYkEyhW2DtKyuQjp6pLF4CAk693NVUBBfb)
 
 Built with ❤️ using:
 NextJS
