@@ -1,7 +1,7 @@
 
 # NextJS Smartcontract Lottery (Raffle) FCC
 
-This is my first deployed web3 application. 
+This is my first deployed WEB3 application. 
 
 [Example App here!](https://modern-lamp-great.on-fleek.app/) 
 
