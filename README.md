@@ -141,11 +141,9 @@ yarn next export
 
 5. Go to `ipfs://YOUR_CID_HERE` and see your ipfs deployed site!
 
-
 # Deploy to IPFS using Fleek
 
 You can also have [Fleek](https://fleek.co/) auto-deploy your website if you connect your github. Connect to fleek and follow along the docs there. You'll get an IPFS hash and a "regular" URL for your site. 
-
 
 # Linting
 
